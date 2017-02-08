@@ -26,6 +26,11 @@ trait AuthenticationTrait
         $this->driver()->get($uri);
     }
 
+    public function be($user)
+    {
+        $this->actingAs($user);
+    }
+
     public function logout()
     {
         // TODO: Set uri to logout route defined in service provider
