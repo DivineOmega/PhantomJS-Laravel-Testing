@@ -1,1 +1,1 @@
-# PhantomJS-Laravel-Test-Case
+# PhantomJS Laravel Testing

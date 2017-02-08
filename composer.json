@@ -1,0 +1,27 @@
+{
+    "name": "divineomega/phantomjs-laravel-testing",
+    "type": "library",
+    "description": "PhantomJS Laravel Testing",
+    "keywords": ["phantomjs", "testing", "laravel", "library", "php"],
+    "homepage": "https://github.com/DivineOmega/php-summary",
+    "license": "LGPL3",
+    "require": {
+        "laravel/framework": "5.1.*",
+        "facebook/webdriver": "^1.2",
+        "phpunit/phpunit": "~4.0",
+        "jakoch/phantomjs-installer": "2.1.1-p08"
+    },
+    "autoload": {
+        "psr-4": {
+            "DivineOmega\\PhantomJSLaravelTesting\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
+    }
+}
