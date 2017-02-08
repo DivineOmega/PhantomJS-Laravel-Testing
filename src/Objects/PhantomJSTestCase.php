@@ -9,10 +9,12 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverDimension;
 use DivineOmega\PhantomJSLaravelTesting\Objects\LaravelTestCase;
 use DivineOmega\PhantomJSLaravelTesting\Traits\CrawlerTrait;
+use DivineOmega\PhantomJSLaravelTesting\Traits\AuthenticationTrait;
 
 abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
 {
     use CrawlerTrait;
+    use AuthenticationTrait;
 
     private $laravelTestCase;
     private $permittedLaravelTestCaseMethods = ['seeInDatabase'];
