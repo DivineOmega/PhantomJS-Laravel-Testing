@@ -2,6 +2,8 @@
 
 namespace DivineOmega\PhantomJSLaravelTesting\Traits;
 
+use URL;
+
 trait CrawlerTrait
 {
     public function visit($uri) 
