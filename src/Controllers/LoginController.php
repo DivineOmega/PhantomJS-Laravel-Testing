@@ -1,5 +1,5 @@
 <?php
-namespace Laravel\Dusk\Http\Controllers;
+namespace DivineOmega\PhantomJSLaravelTesting\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Exception;
