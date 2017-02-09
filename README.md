@@ -13,6 +13,6 @@
 
 ## Installation
 
-1. Install via `composer require`.
+1. Install via `composer require divineomega/phantomjs-laravel-testing`.
 2. Add service provider.
 3. Add global middleware.
