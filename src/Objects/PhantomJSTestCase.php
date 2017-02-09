@@ -53,9 +53,15 @@ abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
         $directory = dirname(__FILE__);
 
         do {
+            
             $directory = dirname($directory);
             $composer = $directory . '/composer.json';
-            if(file_exists($composer)) $root = $directory;
+            $vendorDir = $directory . '/vendor';
+
+            if(file_exists($composer) && file_exists($vendorDir) && is_dir($vendorDir)) {
+                $root = $directory;
+            }
+
         } while(is_null($root) && $directory != '/');
 
         if ($root===null) {
