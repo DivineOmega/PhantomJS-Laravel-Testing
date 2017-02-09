@@ -2,7 +2,7 @@
 
 namespace DivineOmega\PhantomJSLaravelTesting\Objects;
 
-use PHPUnit_Framework_TestCase;
+use Illuminate\Foundation\Testing\TestCase as FoundationTestCase;
 use Exception;
 use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
@@ -11,7 +11,7 @@ use DivineOmega\PhantomJSLaravelTesting\Objects\LaravelTestCase;
 use DivineOmega\PhantomJSLaravelTesting\Traits\CrawlerTrait;
 use DivineOmega\PhantomJSLaravelTesting\Traits\AuthenticationTrait;
 
-abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
+abstract class PhantomJSTestCase extends FoundationTestCase
 {
     use CrawlerTrait;
     use AuthenticationTrait;
@@ -23,6 +23,15 @@ abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
         $this->startPhantomJS();
         $this->setupDriver();
         parent::__construct();
+    }
+
+    public function createApplication()
+    {
+        $app = require 'bootstrap/app.php';
+
+        $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+
+        return $app;
     }
     
     private function setupDriver()
@@ -53,7 +62,7 @@ abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
         $directory = dirname(__FILE__);
 
         do {
-            
+
             $directory = dirname($directory);
             $composer = $directory . '/composer.json';
             $vendorDir = $directory . '/vendor';
