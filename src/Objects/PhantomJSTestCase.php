@@ -16,25 +16,13 @@ abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
     use CrawlerTrait;
     use AuthenticationTrait;
 
-    private $laravelTestCase;
-    private $permittedLaravelTestCaseMethods = ['seeInDatabase'];
-
     private $driver;
 
     public function __construct()
     {
-        $this->laravelTestCase = new LaravelTestCase();
         $this->startPhantomJS();
         $this->setupDriver();
         parent::__construct();
-    }
-
-    public function __call($name, $arguments)
-    {
-        if (!in_array($name, $this->permittedLaravelTestCaseMethods)) {
-            throw new Exception('Method not available: '.$name);
-        }
-        call_user_func_array([$this->laravelTestCase, $name], $arguments);
     }
     
     private function setupDriver()
