@@ -24,6 +24,7 @@ abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
     public function __construct()
     {
         $this->laravelTestCase = new LaravelTestCase();
+        $this->startPhantomJS();
         $this->setupDriver();
         parent::__construct();
     }
@@ -38,8 +39,6 @@ abstract class PhantomJSTestCase extends PHPUnit_Framework_TestCase
     
     private function setupDriver()
     {
-        $this->startPhantomJS();
-
         $host = '127.0.0.1:8910';
         $capabilities = array(
             WebDriverCapabilityType::BROWSER_NAME => 'phantomjs',
