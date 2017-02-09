@@ -24,7 +24,7 @@ abstract class PhantomJSTestCase extends FoundationTestCase
         $this->startPhantomJS();
         $this->setupDriver();
 
-        $this->session = new SessionManager;
+        $this->session = new SessionManager($driver);
 
         parent::__construct();
     }
