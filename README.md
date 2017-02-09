@@ -14,5 +14,6 @@
 ## Installation
 
 1. Install via `composer require divineomega/phantomjs-laravel-testing`.
-2. Add service provider.
-3. Add global middleware.
+2. Add service provider `DivineOmega\PhantomJSLaravelTesting\ServiceProvider::class` to `config/app.php` `providers` array.
+3. Add global middleware `\DivineOmega\PhantomJSLaravelTesting\Http\Middleware\GlobalMiddleware::class` to `app/Http/Kernel.php` `middleware` array.
+
