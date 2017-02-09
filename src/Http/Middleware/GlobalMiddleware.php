@@ -3,6 +3,7 @@
 namespace DivineOmega\PhantomJSLaravelTesting\Http\Middleware;
 
 use Closure;
+use DB;
 
 class GlobalMiddleware
 {
