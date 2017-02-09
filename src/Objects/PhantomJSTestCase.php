@@ -17,7 +17,7 @@ abstract class PhantomJSTestCase extends FoundationTestCase
     use AuthenticationTrait;
 
     private $driver;
-    public $session;
+    private $session;
 
     public function __construct()
     {
@@ -85,7 +85,7 @@ abstract class PhantomJSTestCase extends FoundationTestCase
         exec($phantomJSCommand);
     }
 
-    protected function session()
+    public function session()
     {
         return $this->session;
     }
