@@ -11,7 +11,10 @@ class ServiceProvider extends IlluminateServiceProvider
 
     public function boot()
     {
-        $this->setupRoutes();
+        // For security only setup routes if the environment is local and debug in on
+        if (env('APP_ENV')=='local' && env('APP_DEBUG')=='true') {
+            $this->setupRoutes();
+        }
     }
 
     protected function setupRoutes()
