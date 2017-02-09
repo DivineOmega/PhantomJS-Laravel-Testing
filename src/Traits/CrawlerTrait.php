@@ -6,6 +6,9 @@ trait CrawlerTrait
 {
     public function visit($uri) 
     {
+        if (strpos($uri, '/')===0) {
+            $uri = URL::to($uri);
+        }
         $this->driver()->get($uri);
     }
 
