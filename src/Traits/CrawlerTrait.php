@@ -22,6 +22,6 @@ trait CrawlerTrait
             $stringPresentInSource = true;
         }
 
-        $this->assertTrue($stringPresentInSource, 'Could not find \''.$string.'\' in page source code.');
+        $this->assertTrue($stringPresentInSource, 'Could not find \''.$string.'\' in page source code: '.print_r($source, true));
     }
 }
