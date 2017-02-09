@@ -2,6 +2,8 @@
 
 namespace DivineOmega\PhantomJSLaravelTesting\Http\Middleware;
 
+use Closure;
+
 class GlobalMiddleware
 {
     public function handle($request, Closure $next)
