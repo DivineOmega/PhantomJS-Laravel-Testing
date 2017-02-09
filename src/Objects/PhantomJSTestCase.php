@@ -7,7 +7,7 @@ use Exception;
 use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverDimension;
-use DivineOmega\PhantomJSLaravelTesting\Objects\LaravelTestCase;
+use DivineOmega\PhantomJSLaravelTesting\Objects\SessionManager;
 use DivineOmega\PhantomJSLaravelTesting\Traits\CrawlerTrait;
 use DivineOmega\PhantomJSLaravelTesting\Traits\AuthenticationTrait;
 
@@ -17,11 +17,15 @@ abstract class PhantomJSTestCase extends FoundationTestCase
     use AuthenticationTrait;
 
     private $driver;
+    private $session;
 
     public function __construct()
     {
         $this->startPhantomJS();
         $this->setupDriver();
+
+        $this->session = new SessionManager;
+
         parent::__construct();
     }
 
@@ -79,5 +83,10 @@ abstract class PhantomJSTestCase extends FoundationTestCase
 
         $phantomJSCommand = $root.'/vendor/bin/phantomjs --webdriver=127.0.0.1:8910 &';
         exec($phantomJSCommand);
+    }
+
+    protected function session()
+    {
+        return $this->session;
     }
 }

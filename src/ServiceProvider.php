@@ -26,6 +26,14 @@ class ServiceProvider extends IlluminateServiceProvider
         Route::get($this->routePrefix.'/logout', [
             'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\LoginController@logout'
         ]);
+
+        Route::get($this->routePrefix.'/session/put/{key}/{value}', [
+            'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\SessionController@put'
+        ]);
+
+        Route::get($this->routePrefix.'/session/get/{key}', [
+            'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\SessionController@get'
+        ]);
     }
 
     public function register()
