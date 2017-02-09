@@ -17,11 +17,11 @@ class ServiceProvider extends IlluminateServiceProvider
     protected function setupRoutes()
     {
         Route::get($this->routePrefix.'/login/{userId}', [
-            'uses' => 'Laravel\Dusk\Http\Controllers\LoginController@login'
+            'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\LoginController@login'
         ]);
 
         Route::get($this->routePrefix.'/logout', [
-            'uses' => 'Laravel\Dusk\Http\Controllers\LoginController@logout'
+            'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\LoginController@logout'
         ]);
     }
 
