@@ -8,7 +8,7 @@ class SessionManager
 {
     public function put($key, $value) 
     {
-        $value = base64_encode(serialize($source));
+        $value = base64_encode(serialize($value));
 
         $uri = URL::to('/_pjslt/session/set/'.$key.'/'.$value);
         $this->driver()->get($uri);
