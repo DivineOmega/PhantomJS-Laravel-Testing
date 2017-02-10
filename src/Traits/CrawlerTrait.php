@@ -4,6 +4,7 @@ namespace DivineOmega\PhantomJSLaravelTesting\Traits;
 
 use URL;
 use Carbon\Carbon;
+use Closure;
 
 trait CrawlerTrait
 {
