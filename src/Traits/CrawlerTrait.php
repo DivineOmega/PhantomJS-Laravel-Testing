@@ -60,8 +60,13 @@ trait CrawlerTrait
                 return false;
             }
             
-            sleep(1);
+            $this->delay();
 
         }
+    }
+
+    private function delay()
+    {
+        usleep(200000);
     }
 }
