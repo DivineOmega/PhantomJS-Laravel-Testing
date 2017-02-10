@@ -31,7 +31,7 @@ trait CrawlerTrait
 
     public function see($string)
     {
-        $this->assertTrue($this->isStringPresentInSource($string), 'Could not find \''.$string.'\' in page source code: '.print_r($source, true));
+        $this->assertTrue($this->isStringPresentInSource($string), 'Could not find \''.$string.'\' in page source code: '.print_r($this->driver()->getPageSource(), true));
     }
 
     public function waitToSee($string, $timeout = 5) 
@@ -40,7 +40,7 @@ trait CrawlerTrait
             return $this->isStringPresentInSource($string);
         });
 
-        $this->assertTrue($stringPresentInSource, 'Could not find \''.$string.'\' in page source code: '.print_r($source, true));
+        $this->assertTrue($stringPresentInSource, 'Could not find \''.$string.'\' in page source code: '.print_r($this->driver()->getPageSource(), true));
     }
 
     private function waitFor(Closure $callback, $timeout = 5)
