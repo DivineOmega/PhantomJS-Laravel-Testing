@@ -36,7 +36,7 @@ trait CrawlerTrait
 
     public function waitToSee($string, $timeout = 5) 
     {
-        $stringPresentInSource = $this->waitFor(function() {
+        $stringPresentInSource = $this->waitFor(function() use ($string) {
             return $this->isStringPresentInSource($string);
         });
 
