@@ -1,10 +1,11 @@
 <?php
 namespace DivineOmega\PhantomJSLaravelTesting\Http\Controllers;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Exception;
 
-class SessionController
+class SessionController extends BaseController
 {
     public function put(Request $request)
     {

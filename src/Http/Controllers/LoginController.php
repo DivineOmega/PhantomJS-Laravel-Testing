@@ -2,9 +2,10 @@
 namespace DivineOmega\PhantomJSLaravelTesting\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Controller as BaseController;
 use Exception;
 
-class LoginController
+class LoginController extends BaseController
 {
     public function login($userId)
     {
