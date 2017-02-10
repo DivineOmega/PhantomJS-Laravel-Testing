@@ -69,6 +69,6 @@ trait CrawlerTrait
 
     private function delay()
     {
-        usleep(100000);
+        usleep(1000);
     }
 }
