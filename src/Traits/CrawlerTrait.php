@@ -47,6 +47,8 @@ trait CrawlerTrait
     {
         $started = Carbon::now();
 
+        $this->delay();
+
         while(true) {
 
             // If we get a positive result from the callback, return it
@@ -67,6 +69,6 @@ trait CrawlerTrait
 
     private function delay()
     {
-        usleep(200000);
+        usleep(100000);
     }
 }
