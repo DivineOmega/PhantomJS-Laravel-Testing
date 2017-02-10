@@ -35,7 +35,7 @@ trait CrawlerTrait
 
     public function waitToSee($string, $timeout = 5) 
     {
-        $stringPresentInSource = $this->waitFor($this->isStringPresentInSource());
+        $stringPresentInSource = $this->waitFor($this->isStringPresentInSource($string));
 
         $this->assertTrue($stringPresentInSource, 'Could not find \''.$string.'\' in page source code: '.print_r($source, true));
     }
