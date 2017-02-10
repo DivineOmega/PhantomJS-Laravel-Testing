@@ -4,7 +4,7 @@
     "description": "PhantomJS Laravel Testing",
     "keywords": ["phantomjs", "testing", "laravel", "library", "php"],
     "homepage": "https://github.com/DivineOmega/PhantomJS-Laravel-Testing",
-    "license": "LGPL3",
+    "license": "LGPL-3.0",
     "require": {
         "laravel/framework": "5.1.*",
         "facebook/webdriver": "^1.2",
