@@ -3,6 +3,7 @@
 namespace DivineOmega\PhantomJSLaravelTesting\Traits;
 
 use URL;
+use Carbon\Carbon;
 
 trait CrawlerTrait
 {
@@ -14,7 +15,7 @@ trait CrawlerTrait
         $this->driver()->get($uri);
     }
 
-    public function see($string)
+    private function isStringPresentInSource($string)
     {
         $source = $this->driver()->getPageSource();
 
@@ -24,6 +25,40 @@ trait CrawlerTrait
             $stringPresentInSource = true;
         }
 
+        return $stringPresentInSource;
+    }
+
+    public function see($string)
+    {
+        $this->assertTrue($this->isStringPresentInSource($string), 'Could not find \''.$string.'\' in page source code: '.print_r($source, true));
+    }
+
+    public function waitToSee($string, $timeout = 5) 
+    {
+        $stringPresentInSource = $this->waitFor($this->isStringPresentInSource());
+
         $this->assertTrue($stringPresentInSource, 'Could not find \''.$string.'\' in page source code: '.print_r($source, true));
+    }
+
+    private function waitFor(Closure $callback, $timeout = 5)
+    {
+        $started = Carbon::now();
+
+        while(true) {
+
+            // If we get a positive result from the callback, return it
+            if ($result = $callback()) {
+                return $result;
+                break;
+            }
+
+            // If the timouet has exceeded, return false
+            if ($started->lt(Carbon::now()->subSeconds($timeout))) {
+                return false;
+            }
+            
+            sleep(1);
+
+        }
     }
 }
