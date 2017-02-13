@@ -3,6 +3,7 @@
 namespace DivineOmega\PhantomJSLaravelTesting\Traits;
 
 use Facebook\WebDriver\WebDriverBy;
+use Facebook\WebDriver\Exception\NoSuchElementException;
 
 trait InteractsWithPage
 {
@@ -13,35 +14,47 @@ trait InteractsWithPage
 
     public function click($text)
     {
-        $element = $this->driver()->findElement(WebDriverBy::linkText($text));
+        $element = null;
+
+        try {
+            $element = $this->driver()->findElement(WebDriverBy::linkText($text));
+        } catch (NoSuchElementException $e) {}
 
         if ($element) {
             $element->click();
             return;
         }
 
-        $element = $this->driver()->findElement(WebDriverBy::name($name));
+        try {
+            $element = $this->driver()->findElement(WebDriverBy::name($name));
+        } catch (NoSuchElementException $e) {}
 
         if ($element) {
             $element->click();
             return;
         }
 
-        $element = $this->driver()->findElement(WebDriverBy::id($text));
+        try {
+            $element = $this->driver()->findElement(WebDriverBy::id($text));
+        } catch (NoSuchElementException $e) {}
 
         if ($element) {
             $element->click();
             return;
         }
 
-        $element = $this->driver()->findElement(WebDriverBy::partialLinkText($text));
+        try {
+            $element = $this->driver()->findElement(WebDriverBy::partialLinkText($text));
+        } catch (NoSuchElementException $e) {}
 
         if ($element) {
             $element->click();
             return;
         }
 
-        $element = $this->driver()->findElement(WebDriverBy::cssSelector($text));
+        try {
+            $element = $this->driver()->findElement(WebDriverBy::cssSelector($text));
+        } catch (NoSuchElementException $e) {}
 
         if ($element) {
             $element->click();
