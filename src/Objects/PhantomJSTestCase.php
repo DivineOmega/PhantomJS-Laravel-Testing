@@ -8,9 +8,11 @@ use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverDimension;
 use DivineOmega\PhantomJSLaravelTesting\Objects\SessionManager;
+use DivineOmega\PhantomJSLaravelTesting\Objects\DatabaseManager;
 use DivineOmega\PhantomJSLaravelTesting\Traits\CrawlerTrait;
 use DivineOmega\PhantomJSLaravelTesting\Traits\AuthenticationTrait;
 use DivineOmega\PhantomJSLaravelTesting\Traits\InteractsWithPage;
+use DivineOmega\PhantomJSLaravelTesting\Traits\DatabaseTrait;
 
 abstract class PhantomJSTestCase extends FoundationTestCase
 {
@@ -20,6 +22,7 @@ abstract class PhantomJSTestCase extends FoundationTestCase
 
     private $driver;
     private $session;
+    private $database;
 
     public function __construct()
     {
@@ -27,6 +30,7 @@ abstract class PhantomJSTestCase extends FoundationTestCase
         $this->setupDriver();
 
         $this->session = new SessionManager($this->driver);
+        $this->database = new DatabaseManager($this->driver);
 
         parent::__construct();
     }
