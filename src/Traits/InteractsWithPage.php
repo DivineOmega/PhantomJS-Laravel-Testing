@@ -26,7 +26,7 @@ trait InteractsWithPage
         }
 
         try {
-            $element = $this->driver()->findElement(WebDriverBy::name($name));
+            $element = $this->driver()->findElement(WebDriverBy::name($text));
         } catch (NoSuchElementException $e) {}
 
         if ($element) {
