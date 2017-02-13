@@ -25,7 +25,7 @@ class DatabaseManager
         $uri = URL::to('/_pjslt/db/see/'.$args);
         $this->driver->get($uri);
         
-        $source = $this->driver()->getPageSource();
+        $source = $this->driver->getPageSource();
 
         $count = (int) $source;
 

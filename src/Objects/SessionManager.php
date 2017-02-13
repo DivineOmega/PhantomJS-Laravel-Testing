@@ -26,7 +26,7 @@ class SessionManager
         $uri = URL::to('/_pjslt/session/get/'.$key);
         $this->driver->get($uri);
         
-        $source = $this->driver()->getPageSource();
+        $source = $this->driver->getPageSource();
 
         $value = unserialize(base64_decode($source));
 
