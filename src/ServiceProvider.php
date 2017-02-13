@@ -35,9 +35,6 @@ class ServiceProvider extends IlluminateServiceProvider
             'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\SessionController@get'
         ]);
 
-        Route::get($this->routePrefix.'/db/see/{args}', [
-            'uses' => 'DivineOmega\PhantomJSLaravelTesting\Http\Controllers\DatabaseController@see'
-        ]);
     }
 
     public function register()
