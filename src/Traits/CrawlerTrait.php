@@ -57,7 +57,7 @@ trait CrawlerTrait
                 break;
             }
 
-            // If the timouet has exceeded, return false
+            // If the timeout has exceeded, return false
             if ($started->lt(Carbon::now()->subSeconds($timeout))) {
                 return false;
             }
