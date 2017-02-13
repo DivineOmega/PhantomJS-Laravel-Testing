@@ -10,6 +10,10 @@ trait DatabaseTrait
 {
     public function seeInDatabase($table, array $data, $connection = null) 
     {
-        $this->database()->see($table, $data, $connection);
+        $count = $this->database()->see($table, $data, $connection);
+
+        $this->assertGreaterThan(0, $count, sprintf(
+            'Unable to find row in database table [%s] that matched attributes [%s].', $table, json_encode($data)
+        ));
     }
 }
