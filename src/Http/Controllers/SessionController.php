@@ -12,7 +12,6 @@ class SessionController extends BaseController
         $value = unserialize(base64_decode($request->value));
 
         $request->session()->put($request->key, $value);
-        die;
     }
 
     public function get(Request $request)
