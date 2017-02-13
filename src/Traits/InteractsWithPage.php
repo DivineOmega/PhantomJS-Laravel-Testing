@@ -2,6 +2,8 @@
 
 namespace DivineOmega\PhantomJSLaravelTesting\Traits;
 
+use Facebook\WebDriver\WebDriverBy;
+
 trait InteractsWithPage
 {
     public function press($text) 
