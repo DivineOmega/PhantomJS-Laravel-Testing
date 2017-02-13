@@ -3,6 +3,7 @@
 namespace DivineOmega\PhantomJSLaravelTesting\Objects;
 
 use URL;
+use Facebook\WebDriver\WebDriverBy;
 
 class DatabaseManager
 {
@@ -18,16 +19,14 @@ class DatabaseManager
         $args = [];
         $args['table'] = $table;
         $args['data'] = $data;
-        $args['connections'] = $connection;
+        $args['connection'] = $connection;
 
         $args = base64_encode(serialize($args));
         
         $uri = URL::to('/_pjslt/db/see/'.$args);
         $this->driver->get($uri);
         
-        $source = $this->driver->getPageSource();
-
-        $count = (int) $source;
+        $count = (int) $this->driver->findElement(WebDriverBy::tagName('body'))->getText();
 
         return $count;
     }

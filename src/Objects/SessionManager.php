@@ -28,7 +28,9 @@ class SessionManager
         
         $source = $this->driver->getPageSource();
 
-        $value = unserialize(base64_decode($source));
+        $value = $this->driver->findElement(WebDriverBy::tagName('body'))->getText();
+
+        $value = unserialize(base64_decode($value));
 
         return $value;
     }

@@ -4,6 +4,7 @@ namespace DivineOmega\PhantomJSLaravelTesting\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Exception;
+use DB;
 
 class DatabaseController extends BaseController
 {
@@ -13,13 +14,12 @@ class DatabaseController extends BaseController
 
         extract($args);
 
-        $database = $this->app->make('db');
+        $connection = $connection ?: DB::getDefaultConnection();
 
-        $connection = $connection ?: $database->getDefaultConnection();
+        $count = DB::connection($connection)->table($table)->where($data)->count();
 
-        $count = $database->connection($connection)->table($table)->where($data)->count();
-
-        return $count;
+        echo $count;
+        die;
     }
 
 }
