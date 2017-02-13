@@ -96,4 +96,9 @@ abstract class PhantomJSTestCase extends FoundationTestCase
     {
         return $this->session;
     }
+
+    public function database()
+    {
+        return $this->database;
+    }
 }
