@@ -19,6 +19,7 @@ abstract class PhantomJSTestCase extends FoundationTestCase
     use CrawlerTrait;
     use AuthenticationTrait;
     use InteractsWithPage;
+    use DatabaseTrait;
 
     private $driver;
     private $session;
