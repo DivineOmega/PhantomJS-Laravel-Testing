@@ -77,6 +77,7 @@ trait CrawlerTrait
         $currentUrl = $this->driver()->getCurrentURL();
         $currentUrlPath = parse_url($currentUrl, PHP_URL_PATH);
         $urlMatches = (strpos($currentUrlPath, $uri)===0);
-        return $urlMatches;
+        
+        $this->assertTrue($urlMatches, 'Current URL path \''.$currentUrlPath.'\' does not match expected \''.$uri.'\'');
     }
 }
