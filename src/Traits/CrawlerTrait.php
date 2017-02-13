@@ -75,7 +75,7 @@ trait CrawlerTrait
     public function seePageIs($uri)
     {
         $currentUrl = $this->driver()->getCurrentURL();
-        $currentUrlPath = parse_url($url, PHP_URL_PATH);
+        $currentUrlPath = parse_url($currentUrl, PHP_URL_PATH);
         $urlMatches = (strpos($currentUrlPath, $uri)===0);
         return $urlMatches;
     }
