@@ -10,11 +10,13 @@ use Facebook\WebDriver\WebDriverDimension;
 use DivineOmega\PhantomJSLaravelTesting\Objects\SessionManager;
 use DivineOmega\PhantomJSLaravelTesting\Traits\CrawlerTrait;
 use DivineOmega\PhantomJSLaravelTesting\Traits\AuthenticationTrait;
+use DivineOmega\PhantomJSLaravelTesting\Traits\InteractsWithPage;
 
 abstract class PhantomJSTestCase extends FoundationTestCase
 {
     use CrawlerTrait;
     use AuthenticationTrait;
+    use InteractsWithPage;
 
     private $driver;
     private $session;
