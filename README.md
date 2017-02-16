@@ -1,5 +1,10 @@
 # PhantomJS Laravel Testing
 
+The PhantomJS Laravel Testing package allows you to easily test your Laravel application's JavaScript functionality.
+It makes use of the PhantomJS headless browser to emulate how a real use would interact with your pages. If 
+you have done regular Laravel testing, you'll be happy to know that this package attempts to match its syntax 
+as much as possible.
+
 ## Features
 
 * Identical syntax to standard Laravel testing code where possible
