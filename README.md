@@ -18,3 +18,32 @@
 3. Add service provider `DivineOmega\PhantomJSLaravelTesting\ServiceProvider::class` to `config/app.php` `providers` array.
 4. Add global middleware `\DivineOmega\PhantomJSLaravelTesting\Http\Middleware\GlobalMiddleware::class` to `app/Http/Kernel.php` `middleware` array.
 
+## Usage
+
+Simply change your test classes to extend `PhantomJSTestCase` instead of `TestCase`, then run your unit tests as you normally do. PhantomJS will
+automatically be started up when required.
+
+An example test case is shown below.
+
+```php
+
+<?php
+
+use DivineOmega\PhantomJSLaravelTesting\Objects\PhantomJSTestCase;
+
+class ExampleTestCase extends PhantomJSTestCase
+{
+    public function testGoogleShowsImFeelingLucky()
+    {
+        $this->visit('https://google.co.uk/');
+        $this->see('I\'m Feeling Lucky');
+    }
+
+    public function testGoogleShowsImFeelingDucky()
+    {
+        $this->visit('https://google.co.uk/');
+        $this->see('I\'m Feeling Ducky');
+    }
+}
+
+```
