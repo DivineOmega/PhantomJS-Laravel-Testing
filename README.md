@@ -5,6 +5,8 @@ It makes use of the PhantomJS headless browser to emulate how a real use would i
 you have done regular Laravel testing, you'll be happy to know that this package attempts to match its syntax 
 as much as possible.
 
+**💡 NOTE: If you're starting a new project, I recommend using [Laravel Dusk](https://laravel.com/docs/master/dusk) instead.  [PhantomJS development is being suspended](https://github.com/ariya/phantomjs/issues/15344) and will likely not receive any future updates.**
+
 ## Features
 
 * Identical syntax to standard Laravel testing code where possible
@@ -40,6 +42,7 @@ class ExampleTestCase extends PhantomJSTestCase
 {
     public function testGoogleShowsImFeelingLucky()
     {
+    
         $this->visit('https://google.co.uk/');
         $this->see('I\'m Feeling Lucky');
     }
